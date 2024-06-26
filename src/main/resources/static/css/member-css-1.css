@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Noto Sans KR";
+}
+
+p{
+    margin: 0;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.login-top, .login-bottom{
+    height: 20%;
+}
+
+.login-container{
+    height: 60%;
+    width: 500px;
+    box-sizing: border-box;
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.login-head{
+    /*background-color: lavender;*/
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 6px 6px 0 0;
+
+    flex: 1 0 0;
+}
+
+.login-head h1{
+    text-align: center;
+}
+
+.login-form{
+    flex: 4 0 0;
+}
+
+.login-form-box{
+    height: 100%;
+    box-sizing: border-box;
+    padding: 50px 50px 0 50px;
+}
+
+.login-form-box input{
+    display: block;
+    height: 50px;
+    width: 400px;
+
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
+    border: none;
+    border-bottom: 1px solid lightgray;
+
+    font: inherit;
+}
+
+.login-form-box input:focus{
+    outline: none;
+    border-bottom: 2px solid gray;
+}
+
+.login-form-box button{
+    background-color: lavender;
+    height: 60px;
+    width: 400px;
+
+    margin-top: 50px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    /*font: font-style font-variant font-weight font-size/line-height font-family | initial | inherit;*/
+    font: bold large "Noto Sans KR";
+}
+
+.login-form-box button:hover{
+    background-color: lavenderblush;
+}
+
+.login-menu{
+    padding: 0 50px;
+
+    flex: 1 0 0;
+}
+
+.login-menu-form a,ul{
+    cursor: pointer;
+}
+
+.login-menu-form a{
+    color: black;
+    display: inline;
+    float: left;
+
+    text-decoration: none;
+}
+
+.login-menu-form ul{
+    display: inline;
+    float: right;
+    margin: 0;
+    padding: 0;
+
+    list-style:none;
+}
+
+.login-menu-form li{
+    float: left;
+}
+
+.login-menu-form li:first-child:after{
+    background-color: lightgray;
+    content: "";
+    float: left;
+    width: 1px;
+    height: 15px;
+    margin: 4px 10px;
+}
+
+.my-profile{
+    height: 290px;
+
+    position: relative;
+    top:-60px;
+    z-index: -1;
+}
+
+.cover-image{
+    background-color: lightseagreen;
+    height: 200px;
+
+}
+
+.profile-image{
+    width: 1000px;
+    height: 100px;
+
+    position: relative;;
+    margin: 0 auto;
+}
+
+.my-profile img{
+    height: 100px;
+    width: 100px;
+
+    border-radius: 50%;
+
+    position: absolute;
+    top: -50px;
+    left: 900px;
+
+}
+
+.profile-detail{
+    height: 150px;
+
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.profile-name{
+    font-size: 30px;
+    line-height: 30px;
+
+    margin: 0;
+}
+
+.profile-desc{
+    height: 100px;
+
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+
+.profile-desc p{
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.profile-btn{
+    position: relative;
+}
+
+.profile-btn a{
+    height: 30px;
+    width: 100px;
+
+    box-sizing: border-box;
+    border: 1px solid lightblue;
+    border-radius: 16px;
+
+    color: lightblue;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+
+    position: absolute;
+    top: 0;
+    left: 870px;
+
+    cursor: pointer;
+}
+
+.profile-btn button{
+    height: 30px;
+    width: 30px;
+    background: url("../img/ico/ico-more-vert.svg");
+    background-size: contain;
+
+    position: absolute;
+    left: 970px;
+
+    cursor: pointer;
+}
+
+.profile-btn button span{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+
+    background: url("../img/ico/ico-more-vert.svg");
+    background-size: contain;
+}
+
+.wrap-content{
+    background-color: aquamarine;
+    width: 1000px;
+    flex-grow: 1;
+
+    margin: 0 auto;
+
+}
+
+
+
+

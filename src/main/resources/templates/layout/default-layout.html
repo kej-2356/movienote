@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html th:fragment="layout (title, links, main, script)"
+      xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${title}">default-layout</title>
+
+    <!--  공통 css  -->
+    <link rel="stylesheet" th:href="@{/css/index-css.css}">
+    <link rel="stylesheet" th:href="@{/css/font.css}">
+
+    <!--  추가 css -->
+    <th:block th:replace="${links}"></th:block>
+</head>
+<body>
+    <div class="container">
+        <th:block th:replace="~{fragment/header :: header}" ></th:block>
+
+        <!--  추가 content  -->
+        <th:block th:replace="${main}"></th:block>
+    </div>
+
+    <!--  공통 javascript -->
+    <script>
+
+        /* 사이드 메뉴 */
+        window.addEventListener('load', function () {
+            const menuBtn = document.querySelector('.menu');
+            const sideMenu = document.querySelector('.wrap-side');
+
+            let translate = 0;
+            const speedTime = 400;
+
+            //사이드 메뉴 열림
+            menuBtn.addEventListener('click', function () {
+                sideMenu.style.transform = `translateX(${translate}px)`;
+                sideMenu.style.transition = `all ${speedTime}ms ease`;
+                sideMenu.classList.toggle('open');
+            });
+
+            //사이드 메뉴 닫힘
+            document.addEventListener('click', function (e) {
+                console.log(e.target.classList);
+                console.log(e.currentTarget);
+                if(sideMenu.classList.contains('open')) {
+                    console.log('open');
+                    if(!e.target.closest('.wrap-side')){
+                        console.log('sideMenu');
+                        let tgEl = e.target;
+                        let header = tgEl.closest('.header-1');
+
+                        if(!header){
+                            console.log('!header');
+                            translate = -261;
+                            sideMenu.style.transform = `translateX(${translate}px)`;
+                            sideMenu.style.transition = `all ${speedTime}ms ease`;
+                            sideMenu.classList.remove('open');
+                            return translate = 0;
+                        }
+                    }
+                }
+            })
+
+
+            sideMenu.addEventListener('click', function (e) {
+                console.log(e.target.tagName);
+                const sideMenuAs = document.querySelectorAll('.side-menu a');
+                sideMenuAs.forEach(function (e) {
+                    e.classList.remove('on');
+                })
+                if(e.target.tagName == 'A') {
+                    e.target.classList.toggle('on');
+                }
+            })
+
+
+        })
+    </script>
+
+    <!--  추가 javascript -->
+    <script th:replace="${script}"></script>
+</body>
+</html>

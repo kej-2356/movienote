@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>templates-index</title>
+
+    <link rel= "stylesheet" href="/css/index-css.css">
+    <link rel= "stylesheet" href="/css/font.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-flex">
+                <div class="header-1">
+                    <button class="header-btn menu"></button>
+                    <h1>
+                        <a class="header-link" href="/">MovieNote</a>
+                    </h1>
+                </div>
+                <div class="header-1">
+                    <a class="header-link login" href="/login">로그인</a>
+                    <button class="header-btn search"></button>
+                </div>
+            </div>
+            <nav>
+                <div class="wrap-side" id="sideMenu">
+                    <div class="side-header">
+                        <div class="side-profile">
+                            <img src="/img/test-profile.jpg">
+                            <p>김이름</p>
+                        </div>
+                        <a href="/login" class="side-login">로그인 하기</a>
+                    </div>
+                    <div class="side-menu">
+                        <ul>
+                            <li>
+                                <a href="/my">내 책장</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a href="/">영화노트 홈</a>
+                            </li>
+                            <li>
+                                <a href="#">영화노트 모음</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="wrap-slide">
+                <div class="slide-inner">
+                    <ul class="slider">
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-1.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-2.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-3.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-4.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-5.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-6.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-7.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-8.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-9.JPG">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="/img/test-10.JPG">
+                            </a>
+                        </li><li>
+                            <a href="#">
+                                <img src="/img/test-1.JPG">
+                            </a>
+                        </li><li>
+                            <a href="#">
+                                <img src="/img/test-2.JPG">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="slide-button-inner">
+                    <button class="pre-button slide-button"></button>
+                    <button class="next-button slide-button"></button>
+                </div>
+                <div class="slide-number">
+                    <ul>
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrap-category">
+                <p>category list</p>
+                <div class="category-inner">
+                    <a>
+                        <span>카테고리1</span>
+                    </a>
+                    <a>
+                        <span>카테고리2</span>
+                    </a>
+                    <a>
+                        <span>카테고리3</span>
+                    </a>
+                    <a>
+                        <span>카테고리4</span>
+                    </a>
+                    <a>
+                        <span>카테고리5</span>
+                    </a>
+                    <a>
+                        <span>카테고리6</span>
+                    </a>
+                    <a>
+                        <span>카테고리7</span>
+                    </a>
+                    <a>
+                        <span>카테고리8</span>
+                    </a>
+                    <a>
+                        <span>카테고리9</span>
+                    </a>
+                    <a>
+                        <span>카테고리10</span>
+                    </a>
+                    <a>
+                        <span>카테고리11</span>
+                    </a>
+                    <a>
+                        <span>카테고리12</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+        <footer>
+        </footer>
+    </div>
+
+    <script>
+        /* 이미지 슬라이드 */
+        window.addEventListener('load', function () {
+            const wrapSlide = document.querySelector('.wrap-slide');
+            const slider = document.querySelector('.slider');
+            const slideLis = document.querySelectorAll('.slider li');
+            const moveButton = document.querySelector('.slide-button-inner');
+            const sliderNum = document.querySelector('.slide-number');
+
+            let currentIdx = 0; // 슬라이드 현재 번호
+            let translate = 0; // 슬라이드 위치 값(x넓이)
+            const speedTime = 500;
+
+            /* 이미지슬라이드 넓이 계산 */
+            const liWidth = slideLis[0].clientWidth; //li태그 하나의 넓이
+            const liLen = slideLis.length; //li태그 갯수
+            const sliderWidth = liWidth * slideLis.length;
+            slider.style.width = `${sliderWidth}px`; //.slider 전체 넓이 설정
+
+            moveButton.addEventListener('click', moveSlide);
+
+            sliderNum.addEventListener('click', function (event) {
+                if(event.target.tagName === 'LI') {
+                    let idx = Array.from(event.target.parentNode.children).indexOf(event.target);
+                    // console.log('idx currentIdx -> ' + idx + " " + currentIdx);
+                    move(idx);
+                }
+            });
+
+            function pagination() {
+                const pageIdx = currentIdx / 4;
+                // console.log('currentIdx page -> ' + currentIdx + " " + pageIdx);
+                const numbers = document.querySelectorAll('.slide-number li');
+                numbers.forEach(function (element) {
+                    element.classList.remove('on');
+                });
+                numbers[pageIdx].classList.add('on');
+            }
+
+            function btnMove(n) {
+                move(n + currentIdx);
+            }
+
+            function move(D) {
+                // console.log("n + currentIdx -> " + D);
+                D = D * 4; //한번 넘길때 넘어가는 이미지 수
+                // currentIdx += (-1 * D);
+                // translate += liWidth * D;
+                currentIdx = (D + liLen) % liLen;
+                translate = -(liWidth * currentIdx);
+                // currentIdx = (-1 * D);
+                // translate = liWidth * -currentIdx;
+                // console.log("currentIdx translate -> " + currentIdx + " " + translate);
+                slider.style.transform = `translateX(${translate}px)`;
+                slider.style.transition = `all ${speedTime}ms ease`;
+                pagination();
+            }
+
+            /* 클릭 이벤트 함수 */
+            function moveSlide(event) {
+                if (event.target.classList.contains('next-button')) {
+                    if(translate > -2400){
+                        // move(-1);
+                        btnMove(1);
+                    }
+                } else {
+                    if(0 > translate){
+                        // move(1);
+                        btnMove(-1);
+                    }
+                }
+            }
+
+            /* 자동 변환 */
+            function sliding() {
+                // console.log("====currentIdx=== >> "+currentIdx);
+                btnMove(1);
+
+                // if (currentIdx >= liLen -3){
+                //     console.log('자동변환 if check');
+                //     setTimeout(() => {
+                //         slider.style.transition = 'none';
+                //         currentIdx = 0;
+                //         translate = 0;
+                //         slider.style.transform = `translateX(${translate}px)`;
+                //     }, speedTime);
+                // }
+            }
+
+            function showSliding() {
+                setInterval(sliding, 2000);
+            }
+
+            showSliding();
+
+        })
+
+        /* 사이드 메뉴 */
+        window.addEventListener('load', function () {
+            const menuBtn = document.querySelector('.menu');
+            const sideMenu = document.querySelector('.wrap-side');
+
+            let translate = 0;
+            const speedTime = 400;
+
+            //사이드 메뉴 열림
+            menuBtn.addEventListener('click', function () {
+                sideMenu.style.transform = `translateX(${translate}px)`;
+                sideMenu.style.transition = `all ${speedTime}ms ease`;
+                sideMenu.classList.toggle('open');
+            });
+
+            //사이드 메뉴 닫힘
+            document.addEventListener('click', function (e) {
+                console.log(e.target.classList);
+                console.log(e.currentTarget);
+                if(sideMenu.classList.contains('open')) {
+                    console.log('open');
+                    if(!e.target.closest('.wrap-side')){
+                        console.log('sideMenu');
+                        let tgEl = e.target;
+                        let header = tgEl.closest('.header-1');
+
+                        if(!header){
+                            console.log('!header');
+                            translate = -261;
+                            sideMenu.style.transform = `translateX(${translate}px)`;
+                            sideMenu.style.transition = `all ${speedTime}ms ease`;
+                            sideMenu.classList.remove('open');
+                            return translate = 0;
+                        }
+                    }
+                }
+            })
+
+
+            sideMenu.addEventListener('click', function (e) {
+                console.log(e.target.tagName);
+                const sideMenuAs = document.querySelectorAll('.side-menu a');
+                sideMenuAs.forEach(function (e) {
+                    e.classList.remove('on');
+                })
+                if(e.target.tagName == 'A') {
+                    e.target.classList.toggle('on');
+                }
+            })
+
+
+        })
+    </script>
+</body>
+</html>

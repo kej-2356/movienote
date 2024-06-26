@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/default-layout :: layout(~{::title}, ~{::link}, ~{::main}, ~{::script})}"
+      xmlns:th="http//www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마이 서비스</title>
+
+    <link rel="stylesheet" href="/css/member-css.css">
+</head>
+<body>
+    <main>
+        <div class="my-profile">
+            <div class="cover-image"></div>
+            <div class="profile-image">
+                <img src="/img/test-profile.jpg">
+                <div class="profile-detail">
+                    <p class="profile-name">김이름</p>
+                    <div class="profile-desc">
+                        <p>할말이있나요 test</p>
+                        <div class="profile-btn">
+                            <a href="#">글 작성하기</a>
+                            <button></button>
+                            <div class="btn-ctrl">프로필 편집</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-content">
+
+        </div>
+
+    </main>
+
+    <script>
+        window.addEventListener('load', function () {
+            const profileBtn = document.querySelector('.profile-btn button');
+            const btnCtrl = document.querySelector('.btn-ctrl');
+
+            profileBtn.addEventListener('click', function () {
+                btnCtrl.classList.toggle('ctrl-open');
+            })
+
+            document.addEventListener('click', function (){
+                if(btnCtrl.classList.contains('ctrl-open')) {
+
+                    btnCtrl.classList.remove('ctrl-open');
+                }
+            })
+        })
+    </script>
+</body>
+</html>
