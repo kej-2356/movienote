@@ -1,14 +1,53 @@
 <!DOCTYPE html>
-<html th:replace="~{layout/default-layout :: layout(~{::title}, ~{::link}, ~{::main}, ~{::script})}"
-      xmlns:th="http//www.thymeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>templates-index</title>
 
-    <link rel="stylesheet" href="#">
+    <link rel= "stylesheet" href="/css/index-css.css">
+    <link rel= "stylesheet" href="/css/font.css">
 </head>
 <body>
     <div class="container">
+        <header>
+            <div class="header-flex">
+                <div class="header-1">
+                    <button class="header-btn menu"></button>
+                    <h1>
+                        <a class="header-link" href="/">MovieNote</a>
+                    </h1>
+                </div>
+                <div class="header-1">
+                    <a class="header-link login" href="/login">로그인</a>
+                    <button class="header-btn search"></button>
+                </div>
+            </div>
+            <nav>
+                <div class="wrap-side" id="sideMenu">
+                    <div class="side-header">
+                        <div class="side-profile">
+                            <img src="/img/test-profile.jpg">
+                            <p>김이름</p>
+                        </div>
+                        <a href="/login" class="side-login">로그인 하기</a>
+                    </div>
+                    <div class="side-menu">
+                        <ul>
+                            <li>
+                                <a href="/my">내 책장</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a href="/">영화노트 홈</a>
+                            </li>
+                            <li>
+                                <a href="#">영화노트 모음</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <main>
             <div class="wrap-slide">
                 <div class="slide-inner">
@@ -62,15 +101,13 @@
                             <a href="#">
                                 <img src="/img/test-10.JPG">
                             </a>
-                        </li>
-                        <li>
+                        </li><li>
                             <a href="#">
-                                <img src="/img/test-11.JPG">
+                                <img src="/img/test-1.JPG">
                             </a>
-                        </li>
-                        <li>
+                        </li><li>
                             <a href="#">
-                                <img src="/img/test-12.JPG">
+                                <img src="/img/test-2.JPG">
                             </a>
                         </li>
                     </ul>
@@ -129,6 +166,8 @@
                 </div>
             </div>
         </main>
+        <footer>
+        </footer>
     </div>
 
     <script>
@@ -190,19 +229,71 @@
                 }
             }
 
-            // /* 자동 이동 */
-            // function sliding() {
-            //     btnMove(1);
-            // }
-            //
-            // function showSliding() {
-            //     setInterval(sliding, 4000);
-            // }
-            //
-            // showSliding();
+            /* 자동 이동 */
+            function sliding() {
+                btnMove(1);
+            }
+
+            function showSliding() {
+                setInterval(sliding, 4000);
+            }
+
+            showSliding();
 
         })
 
+        /* 사이드 메뉴 */
+        window.addEventListener('load', function () {
+            const menuBtn = document.querySelector('.menu');
+            const sideMenu = document.querySelector('.wrap-side');
+
+            let translate = 0;
+            const speedTime = 400;
+
+            //사이드 메뉴 열림
+            menuBtn.addEventListener('click', function () {
+                sideMenu.style.transform = `translateX(${translate}px)`;
+                sideMenu.style.transition = `all ${speedTime}ms ease`;
+                sideMenu.classList.toggle('open');
+            });
+
+            //사이드 메뉴 닫힘
+            document.addEventListener('click', function (e) {
+                console.log(e.target.classList);
+                console.log(e.currentTarget);
+                if(sideMenu.classList.contains('open')) {
+                    console.log('open');
+                    if(!e.target.closest('.wrap-side')){
+                        console.log('sideMenu');
+                        let tgEl = e.target;
+                        let header = tgEl.closest('.header-1');
+
+                        if(!header){
+                            console.log('!header');
+                            translate = -261;
+                            sideMenu.style.transform = `translateX(${translate}px)`;
+                            sideMenu.style.transition = `all ${speedTime}ms ease`;
+                            sideMenu.classList.remove('open');
+                            return translate = 0;
+                        }
+                    }
+                }
+            })
+
+
+            sideMenu.addEventListener('click', function (e) {
+                console.log(e.target.tagName);
+                const sideMenuAs = document.querySelectorAll('.side-menu a');
+                sideMenuAs.forEach(function (e) {
+                    e.classList.remove('on');
+                })
+                if(e.target.tagName == 'A') {
+                    e.target.classList.toggle('on');
+                }
+            })
+
+
+        })
     </script>
 </body>
 </html>

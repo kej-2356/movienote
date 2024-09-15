@@ -3,15 +3,39 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: "Noto Sans KR";
+
+    overflow-x: hidden;
 }
 
 p{
     margin: 0;
 }
 
+header{
+    height: 60px;
+
+    flex-shrink: 0;
+}
+
+main{
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    height: 70px;
+
+    flex-shrink: 0;
+}
+
 .container{
     height: 100%;
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .login-top, .login-bottom{
@@ -99,7 +123,7 @@ p{
     flex: 1 0 0;
 }
 
-.login-menu-form a,ul{
+.login-menu-form a,li{
     cursor: pointer;
 }
 
@@ -138,7 +162,7 @@ p{
 }
 
 .cover-image{
-    background-color: lightseagreen;
+    background-color: lavenderblush;
     height: 200px;
 
     position: relative;
@@ -199,7 +223,7 @@ p{
     position: relative;
 }
 
-.profile-btn a{
+.profile-btn > a{
     height: 30px;
     width: 100px;
 
@@ -249,7 +273,10 @@ p{
     position: absolute;
     left: 785px;
     top: 40px;
-    z-index: 0;
+}
+
+.btn-ctrl a{
+    color: gray;
 }
 
 .ctrl-open {
@@ -257,12 +284,109 @@ p{
 }
 
 .wrap-content{
-    background-color: aquamarine;
     width: 1000px;
     flex-grow: 1;
 
     margin: 0 auto;
+}
 
+.content-list{
+    margin: 0 50px;
+}
+
+.content-list ul{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.content-list li{
+    height: 200px;
+    border-bottom: 1px solid lightgray;
+
+    box-sizing: border-box;
+    padding: 30px 20px;
+}
+
+.content-list li a{
+    width: 100%;
+}
+
+/* float 사용 후 clear: both; */
+.content-list li a::after{
+    width: 100%;
+
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.content{
+    background-color: white;
+    width: 700px;
+
+    float: left;
+}
+
+.content-image{
+    background-color: beige;
+    height: 125px;
+    width: 125px;
+
+    float: right;
+}
+
+.content-image img{
+    height: 100%;
+    width: 100%;
+}
+
+.content-title{
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.content-text{
+    color: gray;
+    max-height: 50px;
+    overflow: hidden;
+
+    padding-top: 10px;
+
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.content-comment{
+    color: gray;
+    padding-top: 14px;
+}
+
+.content-number{
+    height: 30px;
+    width: 100%;
+}
+
+.content-number ul{
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+}
+
+.content-number li{
+    height: 25px;
+    width: 30px;
+    display: inline-block;
+
+    cursor: pointer;
+
+    opacity: 0.3;
+}
+
+.content-number li.on{
+    opacity: 1;
 }
 
 

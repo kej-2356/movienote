@@ -38,13 +38,13 @@ button{
 }
 
 header{
-    /*background-color: lavender;*/
     height: 60px;
 }
 
 main{
-    height: 60px;
+    /*height: 60px;*/
 
+    flex-basis: 60px;
     flex-grow: 1;
 
     display: flex;
@@ -52,7 +52,6 @@ main{
 }
 
 footer{
-    background-color: lavenderblush;
     height: 70px;
 }
 
@@ -142,7 +141,7 @@ footer{
 
 .wrap-slide{
     height: 500px;
-    max-width: 2000px;
+    max-width: 200vw;
 
     box-sizing: border-box;
     overflow: hidden;
@@ -153,6 +152,8 @@ footer{
 .slide-inner{
     padding-top: 25px;
     padding-left: 30px;
+
+    height: 400px;
 }
 
 .slide-inner li{
@@ -174,7 +175,7 @@ footer{
 
 .slide-inner a{
     height: 400px;
-    width: 400px;
+    width: 25vw;
 
     display: block;
     overflow: hidden;
