@@ -3,36 +3,18 @@
       xmlns:th="http//www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>마이 서비스</title>
+    <title>내 영화노트들</title>
 
-    <link rel="stylesheet" href="/css/member-css.css">
+    <link rel="stylesheet" href="/css/member.css">
 </head>
 <body>
     <main>
-        <div class="my-profile">
-            <div class="cover-image"></div>
-            <div class="profile-image">
-                <img src="/img/test-profile.jpg">
-                <div class="profile-detail">
-                    <p class="profile-name">김이름</p>
-                    <div class="profile-desc">
-                        <p>할말이있나요 test</p>
-                        <div class="profile-btn">
-                            <a href="#">글 작성하기</a>
-                            <button></button>
-                            <div class="btn-ctrl">
-                                <a href="#">프로필 편집</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="wrap-content">
             <div class="content-list">
                 <ul>
                     <li>
-                        <a>
+                        <a href="/detail">
                             <div class="content">
                                 <strong class="content-title">제목-1</strong>
                                 <div class="content-text">
@@ -41,8 +23,11 @@
                                     3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                     4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                 </div>
-                                <div class="content-comment">
-                                    댓글 일자
+                                <div class="content-sub-title">
+                                    <span >댓글</span>
+                                    <span class="sub-title-content">0</span>
+                                    <span class="sub-title-content">2024.10.27</span>
+                                    <span class="sub-title-content">홍길동</span>
                                 </div>
                             </div>
                             <div class="content-image">
@@ -60,8 +45,33 @@
                                     3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                     4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                 </div>
-                                <div class="content-comment">
-                                    댓글 일자
+                                <div class="content-sub-title">
+                                    <span >댓글</span>
+                                    <span class="sub-title-content">0</span>
+                                    <span class="sub-title-content">2024.10.27</span>
+                                    <span class="sub-title-content">홍길동</span>
+                                </div>
+                            </div>
+                            <div class="content-image">
+                                <img src="/img/test-1.JPG">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/templates/movies/movie-detail.html">
+                            <div class="content">
+                                <strong class="content-title">제목-1</strong>
+                                <div class="content-text">
+                                    1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
+                                    2. 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
+                                    3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
+                                    4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
+                                </div>
+                                <div class="content-sub-title">
+                                    <span >댓글</span>
+                                    <span class="sub-title-content">0</span>
+                                    <span class="sub-title-content">2024.10.27</span>
+                                    <span class="sub-title-content">홍길동</span>
                                 </div>
                             </div>
                             <div class="content-image">
@@ -79,8 +89,11 @@
                                     3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                     4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                 </div>
-                                <div class="content-comment">
-                                    댓글 일자
+                                <div class="content-sub-title">
+                                    <span >댓글</span>
+                                    <span class="sub-title-content">0</span>
+                                    <span class="sub-title-content">2024.10.27</span>
+                                    <span class="sub-title-content">홍길동</span>
                                 </div>
                             </div>
                             <div class="content-image">
@@ -98,27 +111,11 @@
                                     3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                     4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
                                 </div>
-                                <div class="content-comment">
-                                    댓글 일자
-                                </div>
-                            </div>
-                            <div class="content-image">
-                                <img src="/img/test-1.JPG">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <div class="content">
-                                <strong class="content-title">제목-1</strong>
-                                <div class="content-text">
-                                    1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                                    2. 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                                    3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                                    4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
-                                </div>
-                                <div class="content-comment">
-                                    댓글 일자
+                                <div class="content-sub-title">
+                                    <span >댓글</span>
+                                    <span class="sub-title-content">0</span>
+                                    <span class="sub-title-content">2024.10.27</span>
+                                    <span class="sub-title-content">홍길동</span>
                                 </div>
                             </div>
                             <div class="content-image">
@@ -144,27 +141,10 @@
                 </ul>
             </div>
         </div>
-
     </main>
 
     <script>
-        window.addEventListener('load', function () {
-            const profileBtn = document.querySelector('.profile-btn button');
-            const btnCtrl = document.querySelector('.btn-ctrl');
 
-            profileBtn.addEventListener('click', function () {
-                btnCtrl.classList.toggle('ctrl-open');
-            })
-
-            document.addEventListener('click', function (e){
-                if(btnCtrl.classList.contains('ctrl-open')) {
-                    console.log('ctrl-open');
-                    if(!e.target.closest('.profile-btn')){
-                        btnCtrl.classList.remove('ctrl-open');
-                    }
-                }
-            })
-        })
     </script>
 </body>
 </html>

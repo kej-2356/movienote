@@ -14,7 +14,7 @@ p{
 header{
     height: 60px;
 
-    flex-shrink: 0;
+    /*flex-shrink: 0;*/
 }
 
 main{
@@ -27,7 +27,7 @@ main{
 footer{
     height: 70px;
 
-    flex-shrink: 0;
+    /*flex-shrink: 0;*/
 }
 
 .container{
@@ -123,7 +123,11 @@ footer{
     flex: 1 0 0;
 }
 
-.login-menu-form a,li{
+.login-menu-form a{
+    cursor: pointer;
+}
+
+.login-menu-form li{
     cursor: pointer;
 }
 
@@ -282,6 +286,22 @@ footer{
 .ctrl-open {
     display: inline-block;
 }
+.wrap-title {
+    /*position: relative;*/
+}
+
+.wrap-text {
+    height: 250px;
+    width: 1000px;
+    border-bottom: 1px solid black;
+
+    margin: 0 auto;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+}
 
 .wrap-content{
     width: 1000px;
@@ -358,9 +378,21 @@ footer{
     line-height: 16px;
 }
 
-.content-comment{
+.content-sub-title{
     color: gray;
-    padding-top: 14px;
+    padding-top: 20px;
+
+    font-size: 14px;
+}
+
+.sub-title-content:not(:last-child)::after {
+    content: " ";
+    background-color: gray;
+    display: inline-block;
+    height: 2px;
+    margin: 10px 6px 0;
+    vertical-align: top;
+    width: 2px;
 }
 
 .content-number{
@@ -373,14 +405,16 @@ footer{
     width: 100%;
 
     text-align: center;
+    vertical-align: center;
 }
 
 .content-number li{
-    height: 25px;
+    height: 30px;
     width: 30px;
     display: inline-block;
 
     cursor: pointer;
+    align-content: center;
 
     opacity: 0.3;
 }
